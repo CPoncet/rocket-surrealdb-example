@@ -1,0 +1,4 @@
+[default]
+# Rocket's default port is already used by SurrealDB, 
+# either change SurrealDB port or Rocket port like below
+port = 8001

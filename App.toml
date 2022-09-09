@@ -1,0 +1,4 @@
+[database]
+namespace = "test"
+database = "test"
+datastore = "memory"
