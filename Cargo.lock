@@ -2373,6 +2373,7 @@ dependencies = [
  "rocket_codegen",
  "rocket_http",
  "serde",
+ "serde_json",
  "state",
  "tempfile",
  "time 0.3.14",
@@ -2382,6 +2383,14 @@ dependencies = [
  "ubyte",
  "version_check",
  "yansi",
+]
+
+[[package]]
+name = "rocket-surrealdb-example"
+version = "0.1.0"
+dependencies = [
+ "rocket",
+ "surrealdb",
 ]
 
 [[package]]
@@ -2497,15 +2506,6 @@ dependencies = [
  "heapless",
  "num-traits",
  "smallvec",
-]
-
-[[package]]
-name = "rust-headless-cms"
-version = "0.1.0"
-dependencies = [
- "rocket",
- "serde",
- "surrealdb",
 ]
 
 [[package]]

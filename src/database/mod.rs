@@ -8,13 +8,9 @@ pub struct Db {
 
 impl Db {
   pub async fn new(namespace: &str, database: &str, datastore: &str) -> Self {
-
-    let session = Session::for_db(namespace.to_string(), database.to_string());
-    let datastore = Datastore::new(&datastore).await.unwrap();
-
     Self {
-      session,
-      datastore
+      session: Session::for_db(namespace.to_string(), database.to_string()),
+      datastore: Datastore::new(&datastore).await.unwrap()
     }
   }
 
@@ -24,7 +20,7 @@ impl Db {
     let mut results = Vec::new();
 
     for response in responses {
-      results.push(response.result?);
+      results.push(response.result?.first());
     }
     
     Ok(results)
@@ -34,6 +30,7 @@ impl Db {
 pub struct DbFairing;
 
 #[derive(Deserialize)]
+#[serde(crate = "rocket::serde")]
 struct DbConfig {
   namespace: String,
   database: String,
