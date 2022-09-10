@@ -14,7 +14,7 @@ impl Db {
     }
   }
 
-  pub async fn query<'a>(&self, statement: &'a str) -> Result<Vec<Value>, Error> {
+  pub async fn query(&self, statement: &str) -> Result<Vec<Value>, Error> {
     let responses = self.datastore.execute(statement, &self.session, None, false).await?;
 
     let mut results = Vec::new();
