@@ -17,6 +17,7 @@ async fn index(db: &State<Db>) -> Json<Value> {
 #[launch]
 async fn rocket() -> _ {
     let figment = Figment::from(Config::default())
+      .merge(Toml::file("Rocket.toml").nested())
       .merge(Toml::file("App.toml").nested());
 
     rocket::custom(figment).mount("/", routes![index]).attach(DbFairing)
